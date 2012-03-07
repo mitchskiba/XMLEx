@@ -10,5 +10,4 @@
 	<capture name='num'>
 		<use name='issuenum'/>
 	</capture>
-	<lit>  	</lit>
 </seq>

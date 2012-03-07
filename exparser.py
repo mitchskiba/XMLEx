@@ -16,14 +16,11 @@ def mkinit(validation=None):
                 raise Exception("%s:%s"%(xnode.nodeName, x))
     return init
 
-
-_needs_class_escape ="[]^\\"
-
-
 def wrap(f, out):
     out.write("(?:")
     f(out)
     out.write(")");
+
 class Literal:
     _escape ="[]()\\.^${}|"
     def valid(node):
@@ -237,7 +234,17 @@ class Group:
         self.children[0].render(out)
         out.write(')')
         
-
+class Range(CharClass):
+    def valid(self):
+        if (self.children or self.value
+                or "min" not in self.__dict__ or "max" not in self.__dict__):
+            return "Range should be an empty tag with min and max specified"
+    __init__=mkinit(valid)
+    _sequential = lambda s: True 
+    _dirmult = lambda s: True    
+    def render(self, out):
+        out.write("[%s-%s]"%(self.min, self.max))
+        
 class ExParser:
     def __init__(self, language="ruby", keep_names = True):
         self.defs = {}
@@ -281,6 +288,7 @@ class ExParser:
             'string_start':OneShot('\\A'),
             'string_end':OneShot('\\z'),
             'class':CharClass,
+            'range':Range,
             'macro':Macro,
             'use':UseMacro,
             'set':SetFlags,

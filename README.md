@@ -6,7 +6,7 @@ I'll start with the biggest WTF on this project. Why would I want to use somthin
 
 ## Maintainability.
 If You were asked to figure out why the below regex didn't match something you expected it to, where would you start? How do you know what it even does?
-`(SH|RE|MF)-((?:197[123456789]|19[89]\d|[23456789]\d{3})-(?:0[123456789]|1[012])-(?:0[123456789]|[12]\d|3[01]))-((?!0{5})\d{5})`
+`(SH|RE|MF)-((?:197[1-9]|19[89]\d|[2-9]\d{3})-(?:0[1-9]|1[012])-(?:0[1-9]|[12]\d|3[01]))-((?!0{5})\d{5})`
 
 That is the example regex I built with this project. It is one of the three two digit codes, a dash, a YYYY-MM-DD date (after Jan 1, 1971) a dash, then a non 00000 5 digit number.
 
@@ -14,7 +14,7 @@ That is the example regex I built with this project. It is one of the three two 
 
 I have heard some smart people say they shy away from using regex to enforce anything that could be considered business logic. In the dense form above, there isn't room to explain why anything is the way it is. Even an inline regex comment or two wouldn't save it.
 
-This is a real shame given how useful regex can be for enforcing constraints.
+This is a real shame given how useful regex can be for enforcing some constraints.
 
 # How
 

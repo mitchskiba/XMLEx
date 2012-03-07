@@ -13,7 +13,7 @@
 		<or>
 			<seq> <!-- 1970's -->
 				<lit>197</lit>
-				<class values='123456789'/>
+				<range min='1' max='9'/>
 			</seq>
 			<seq> <!-- 1980's - 1999 -->
 				<lit>19</lit>
@@ -21,7 +21,7 @@
 				<digit/>
 			</seq>
 			<seq> <!-- 2000+ -->
-				<class values='23456789'/>
+				<range min='2' max='9'/>
 				<mult min='3' max='3'><digit/></mult>
 			</seq>
 		</or>
@@ -29,7 +29,7 @@
 		<or> <!-- Month, 01-12 -->
 			<seq> <!-- 0x months -->
 				<lit>0</lit>
-				<class values='123456789'/>
+				<range min='1' max='9'/>
 			</seq>
 			<seq> <!-- 10-12 -->
 				<lit>1</lit>
@@ -40,7 +40,7 @@
 		<or> <!-- Days 01-31 -->
 			<seq> <!-- 0x days -->
 				<lit>0</lit>
-				<class values='123456789'/>
+				<range min='1' max='9'/>
 			</seq>
 			<seq> <!-- 1x and 2x days -->
 				<class values='12'/>
