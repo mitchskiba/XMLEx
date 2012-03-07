@@ -249,7 +249,6 @@ class ExParser:
         self.keep_names = keep_names
     
     def set_language(self,lang):
-        print('lang:',lang)
         if lang=="python" or lang=="pcre":
             self.style['named_group'] = "(?P<%s>"
             self.style['named_reference'] = "(?P=%s)"
