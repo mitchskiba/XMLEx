@@ -33,6 +33,8 @@ __whitespace, not_whitespace, digit, not_digit, word_char, not_word_char, any, w
 
 __class__ Defines a character class. The values attribute will be escaped, so place a list of literal characters in there. If you wish to use an exisiting character class as well, you can put it inside the body. Setting the *negative* attribute to true will make it a negated character class.
 
+__range__ Define a character range. Make an empty tag with a min and max attribute. These can be children of a class tag, or stand alone
+
 __macro__ Defines a named regular expression that can be inserted with the __use__ tag. The __macro__ tag expects a *name* attribute and a single child that will be put in pace of the use tag. The tag itself will not output anything. It is recommended that all macros go inside a sequence in a file included as a library. Also, don't put capture groups inside macros. Bad things may happen.
 
 __use__ Substituted with the regular expression defined with __macro__ that shares the *name* attribute's value with this tag.
