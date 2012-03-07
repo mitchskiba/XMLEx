@@ -16,6 +16,7 @@ parser.add_option("-a","--lang", dest="language",
 a,b = parser.parse_args()
 if len(b)!=2:
     parser.print_help()
+    exit()
 
 e = ExParser(language=a.language, keep_names = not a.numonly)
 if a.library:
