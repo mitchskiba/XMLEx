@@ -249,6 +249,7 @@ class ExParser:
         self.keep_names = keep_names
     
     def set_language(self,lang):
+        print('lang:',lang)
         if lang=="python" or lang=="pcre":
             self.style['named_group'] = "(?P<%s>"
             self.style['named_reference'] = "(?P=%s)"
@@ -256,7 +257,7 @@ class ExParser:
             self.style['named_group'] = "(?<%s>"
             self.style['named_reference'] = "\k<%s>"
         else:
-            Exception("Unknown Language Option")
+            raise Exception("Unknown Language Option")
     
     def process_dom(self, node, root=False):
         if(root):
