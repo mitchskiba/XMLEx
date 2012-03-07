@@ -1,0 +1,66 @@
+<seq>
+<!-- Department prefix on ticket numbers -->
+<macro name='department-prefix'>
+	<or>
+		<lit>SH</lit><!-- Shipping -->
+		<lit>RE</lit><!-- Receiving -->
+		<lit>MF</lit><!-- Manufacturing -->
+	</or>
+</macro>
+<macro name='date-ymd-dashed'> <!-- date in format yyyy-mm-dd at or after jan 1, 1971 -->
+	<seq>
+		<!-- Year, 1971+ -->
+		<or>
+			<seq> <!-- 1970's -->
+				<lit>197</lit>
+				<class values='123456789'/>
+			</seq>
+			<seq> <!-- 1980's - 1999 -->
+				<lit>19</lit>
+				<class values='89'/>
+				<digit/>
+			</seq>
+			<seq> <!-- 2000+ -->
+				<class values='23456789'/>
+				<mult min='3' max='3'><digit/></mult>
+			</seq>
+		</or>
+		<lit>-</lit>
+		<or> <!-- Month, 01-12 -->
+			<seq> <!-- 0x months -->
+				<lit>0</lit>
+				<class values='123456789'/>
+			</seq>
+			<seq> <!-- 10-12 -->
+				<lit>1</lit>
+				<class values='012'/>
+			</seq>
+		</or>
+		<lit>-</lit>
+		<or> <!-- Days 01-31 -->
+			<seq> <!-- 0x days -->
+				<lit>0</lit>
+				<class values='123456789'/>
+			</seq>
+			<seq> <!-- 1x and 2x days -->
+				<class values='12'/>
+				<digit/>
+			</seq>
+			<seq> <!-- 30 and 31 -->
+				<lit>3</lit>
+				<class values='01'/>
+			</seq>
+		</or>
+	</seq>
+</macro>
+<macro name='issuenum'>
+	<seq>
+		<!-- All 0s is never a valid number
+				Use negative lookahead to forbid it-->
+		<group type='negative lookahead'>
+			<mult min='5' max='5'><lit>0</lit></mult>
+		</group>
+		<mult min='5' max='5'><digit/></mult>
+	</seq>
+</macro>
+</seq>

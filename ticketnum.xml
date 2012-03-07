@@ -1,0 +1,13 @@
+<seq>
+	<capture name='dept'>
+		<use name='department-prefix'/>
+	</capture>
+	<lit>-</lit>
+	<capture name='date'>
+		<use name='date-ymd-dashed'/>
+	</capture>
+	<lit>-</lit>
+	<capture name='num'>
+		<use name='issuenum'/>
+	</capture>
+</seq>
