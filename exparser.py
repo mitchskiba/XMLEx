@@ -176,14 +176,16 @@ class Capture:
     def valid(self):
         if self.value or len(self.children)!=1:
             return "Capture groups must have a single regex child"
-        if 'name' in self.__dict__:
-            self.exparser.refs[self.name]=self.exparser.refc+1
-        self.exparser.refc+=1
         
     __init__=mkinit(valid)
     _sequential = lambda s: True
     _dirmult = lambda s: True
     def render(self, out):
+        if 'name' in self.__dict__:
+            self.exparser.refs[self.name]=self.exparser.refc+1
+        self.exparser.refc+=1
+
+        
         if 'name' in self.__dict__ and self.exparser.keep_names:
             out.write(self.exparser.style['named_group']%self.name)
         else:
