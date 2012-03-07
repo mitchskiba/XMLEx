@@ -255,6 +255,8 @@ class ExParser:
         elif lang==".NET" or lang=="ruby":
             self.style['named_group'] = "(?<%s>"
             self.style['named_reference'] = "\k<%s>"
+        else:
+            Exception("Unknown Language Option")
     
     def process_dom(self, node, root=False):
         if(root):
