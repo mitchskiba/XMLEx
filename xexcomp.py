@@ -1,4 +1,4 @@
-#!/c/Python31/python.exe
+#!/usr/bin/python3
 import sys
 from exparser import ExParser
 from xml.dom import minidom
@@ -10,7 +10,7 @@ parser.add_option("-l","--lib", dest="library",
 parser.add_option("--force-numeric",action="store_true", dest="numonly",
                   default=False, help="Force use of numeric capture groups only")
 parser.add_option("-a","--lang", dest="language",
-                  help='Language to target. Options are :[ruby|python|.NET|pcre]',
+                  help='Language to target. Options are [ruby|python|.NET|pcre]',
                   default="ruby")
 
 a,b = parser.parse_args()

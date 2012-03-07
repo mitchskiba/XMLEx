@@ -84,7 +84,7 @@ class Mult:
             out.write("{%s,%s}"%(self.min, self.max))
 
 class CharClass:
-    _escape = "[]^\\"
+    _escape = "[]^\\-"
     def valid(node):
         for child in node.children:
             if not isinstance(child,CharClass):
