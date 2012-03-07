@@ -59,3 +59,8 @@ __group__ Makes a special grouping for the sorrounded subgroup. Valid types are 
 	  -a LANGUAGE, --lang=LANGUAGE
 							Language to target. Options are
 							[ruby|python|.NET|pcre]
+
+							
+							
+To Run the example I included:
+./xexcomp.py ticketnum.xml ticketnum.re.txt -l lib.xml
