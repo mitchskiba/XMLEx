@@ -1,11 +1,10 @@
 
-
 # WHY?!?
 
 I'll start with the biggest WTF on this project. Why would I want to use somthing as verbose as XML to define somthing usually known to be sleek like regex?
 
 ## Maintainability.
-If You were asked to figure out why the below regex didn't match something you expected it to, where would you start? How do you know what it even does?
+If You were asked to figure out why the below regex didn't match something you expected it to, where would you start? It isn't impossible to understand, but it takes longer than it should.
 `(SH|RE|MF)-((?:197[1-9]|19[89]\d|[2-9]\d{3})-(?:0[1-9]|1[012])-(?:0[1-9]|[12]\d|3[01]))-((?!0{5})\d{5})`
 
 That is the example regex I built with this project. It is one of the three two digit codes, a dash, a YYYY-MM-DD date (after Jan 1, 1971) a dash, then a non 00000 5 digit number.
